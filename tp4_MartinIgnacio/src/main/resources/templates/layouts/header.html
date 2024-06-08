@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head data-th-fragment="head">
+		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1, user-scalable=no">
+		
+		<title data-th-text="${titulo}"></title>
+		
+		<link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+	</head>
+	<body>
+		
+		<script data-th-fragment="script" type="text/javascript" data-th-src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+		<style data-th-fragment="style">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+		
+			.bg-custom {
+				background-color: #21618C;
+			}
+		
+			.titulo-header {
+				font-family: serif;
+			}
+		
+			.subtitulo-header {
+				font-family: 'Courier New', Courier, monospace;
+			}
+		
+			aside {
+				border-radius: 5px;
+			}
+		
+			.imagen {
+				border-radius: 5px;
+			}
+		
+			.btn-custom {
+				color: #ffff;
+				background-color: #21618C;
+				border-color: #21618C;
+			}
+		
+			.btn-custom:hover {
+				color: #ffff;
+				background-color: #1A5276;
+				border-color: #1A5276;
+			}
+		</style>
+		<nav data-th-fragment="nav" class="navbar bg-custom navbar-expand-lg" data-bs-theme="dark">
+				<div class="container-fluid">
+					<a class="navbar-brand" data-th-href="@{/index}">Inicio</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+						aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a class="nav-link" aria-current="page" href="#info">Acerca de</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" data-th-href="@{/carreras/listadocarreras}">Carreras</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#noticias">Noticias</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#contacto">Contacto</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<header data-th-fragment="header" class="py-2 bg-custom" id="inicio">
+				<div class="container text-white text-center my-2">
+					<h1 class="display-4 fw-bold titulo-header mb-3">Facultad de Ingeniería</h1>
+					<p class="lead mb-2 subtitulo-header">"Forjando mentes, transformando el futuro"</p>
+					<div class=" d-flex align-items-center justify-content-center my-2 bg-white imagen">
+						<img src="/image/fi-logo.png" alt="Logo de la Facultad" class="img-fluid">
+					</div>
+				</div>
+			</header>
+	</body>
+</html>

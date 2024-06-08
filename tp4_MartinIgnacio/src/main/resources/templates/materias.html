@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+	<head data-th-replace="~{/layouts/header::head}"></head>
+	<body>
+		<script	data-th-replace="~{/layouts/header::script}"></script>
+		<style 	data-th-replace="~{/layouts/header::style}"></style>
+		<nav data-th-replace="~{/layouts/header::nav}"></nav>
+		<header data-th-replace="~{/layouts/header::header}"></header>
+		
+		<a class="m-3 btn btn-primary" data-th-href="@{/materias/nuevo}" role="button">Nueva Materia</a>
+		
+		<div class="d-flex justify-content-center">	
+			<table class="table table-striped table-hover mx-auto">
+						  <thead>
+						    <tr>
+						      <th scope="col">Código</th>
+						      <th scope="col">Nombre</th>
+						      <th scope="col">Curso</th>
+						      <th scope="col">Horas</th>
+							  <th scope="col">Docente</th>
+							  <th scope="col">Carrera</th>
+							  <th scope="col">Modalidad</th>
+							  <th scope="col">Opciones</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr data-th-each="mat: ${materias}">
+						      <td data-th-text="${mat.codigo}"></td>
+							  <td data-th-text="${mat.nombre}"></td>
+							  <td data-th-text="${mat.curso}"></td>
+							  <td data-th-text="${mat.horas}"></td>
+							  <td data-th-text="${mat.docente.nombre}"></td>
+							  <td data-th-text="${mat.carrera.nombre}"></td>
+							  <td data-th-text="${mat.modalidad}"></td>
+							  <td>
+								<a class="btn btn-warning" data-th-href="@{/materias/modificar/}+${mat.codigo}" role="button">Editar</a>
+								<a class="btn btn-danger" data-th-href="@{/materias/eliminar/}+${mat.codigo}" role="button">Eliminar</a>
+							  </td>
+						    </tr>
+				
+						    </tr>
+						  </tbody>
+						</table>
+		</div>
+			
+		
+		
+		
+		
+	</body>
+	<footer data-th-replace="~{/layouts/footer::footer}"></footer>
+</html>

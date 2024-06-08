@@ -1,13 +1,35 @@
 package ar.edu.unju.fi.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Materia {
-int codigo;
-String nombre;
-int curso;
-int horas;
-Docente docente;
-String carrera;
-Modalidad modalidad;
+private int codigo;
+private String nombre;
+private int curso;
+private int horas;
+@Autowired
+private Docente docente;
+@Autowired
+private Carrera carrera;
+private Modalidad modalidad;
+
+public Materia() {
+	// TODO Auto-generated constructor stub
+}
+
+public Materia(int codigo, String nombre, int curso, int horas, Docente docente, Carrera carrera, Modalidad modalidad) {
+	super();
+	this.codigo = codigo;
+	this.nombre = nombre;
+	this.curso = curso;
+	this.horas = horas;
+	this.docente = docente;
+	this.carrera = carrera;
+	this.modalidad = modalidad;
+}
+
+
+
 public int getCodigo() {
 	return codigo;
 }
@@ -38,10 +60,10 @@ public Docente getDocente() {
 public void setDocente(Docente docente) {
 	this.docente = docente;
 }
-public String getCarrera() {
+public Carrera getCarrera() {
 	return carrera;
 }
-public void setCarrera(String carrera) {
+public void setCarrera(Carrera carrera) {
 	this.carrera = carrera;
 }
 public Modalidad getModalidad() {

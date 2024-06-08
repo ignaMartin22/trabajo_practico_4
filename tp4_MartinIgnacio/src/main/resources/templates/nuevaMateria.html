@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head data-th-replace="~{/layouts/header::head}"></head>
+
+<body>
+	<script data-th-replace="~{/layouts/header::script}"></script>
+	<style data-th-replace="~{/layouts/header::style}"></style>
+	<nav data-th-replace="~{/layouts/header::nav}"></nav>
+	<header data-th-replace="~{/layouts/header::header}"></header>
+
+	<div class="row py-5 m">
+		<div class="row mb-5">
+			<h3 data-th-text="${edicion}?'Modificar Materia' : 'Nueva Materia' " class="text-center"></h3>
+		</div>
+		<div class="row">
+
+			<form data-th-action="${edicion}?@{/materias/modificar} : @{/materias/guardar}" th:object="${materia}"
+				method="post">
+
+
+				<div class="row mb-3 justify-content-center">
+					<label for="codigo" class="col-sm-12 col-lg-2 col-form-label text-lg-end"> Código de Materia </label>
+					<div class="col-sm-12 col-lg-4">
+						<input type="number" class="form-control" id="codigo" th:field="*{codigo}" th:disabled="${edicion}?true:false" >
+						<input type="hidden" class="form-control" id="codigo" th:field="*{codigo}" th:if="${edicion}">
+					</div>
+				</div>
+
+				<div class="row mb-3 justify-content-center">
+					<label for="nombre" class="col-sm-12 col-lg-2 col-form-label text-lg-end"> Nombre de Materia</label>
+					<div class="col-sm-12 col-lg-4">
+						<input type="text" class="form-control" id="nombre" th:field="*{nombre}">
+					</div>
+				</div>
+
+
+				<div class="row mb-3 justify-content-center">
+					<label for="curso" class="col-sm-12 col-lg-2 col-form-label text-lg-end"> Curso </label>
+					<div class="col-sm-12 col-lg-4">
+						<input type="number" class="form-control" id="curso" th:field="*{curso}">
+					</div>
+				</div>
+
+
+
+				<div class="row mb-3 justify-content-center">
+					<label for="horas" class="col-sm-12 col-lg-2 col-form-label text-lg-end"> Horas </label>
+					<div class="col-sm-12 col-lg-4">
+						<input type="number" class="form-control" id="horas" th:field="*{horas}">
+					</div>
+				</div>
+
+				<div class="row mb-3 justify-content-center">
+				  <label for="docente" class="col-sm-12 col-lg-2 col-form-label text-lg-end"> Nombre Docente </label>
+				  <div class="col-sm-12 col-lg-4">
+				    <select class="form-select" id="docente" th:field="*{docente.legajo}">
+				      <option th:each="doc : ${docentes}" th:value="${doc.legajo}" th:text="${doc.nombre}"></option>
+				    </select>
+				  </div>
+				</div>
+
+
+
+				<div class="row mb-3 justify-content-center">
+					<label for="car" class="col-sm-12 col-lg-2 col-form-label text-lg-end"> Carrera </label>
+					<div class="col-sm-12 col-lg-4">
+						<select class="form-select" id="car" th:field="*{carrera.codigo}">
+							<option  th:each="carrera: ${carreras}" th:value="${carrera.codigo}" th:text="${carrera.nombre}" th:if="${carrera.estado}"></option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row mb-3 justify-content-center">
+					<label for="modalidad" class="col-sm-12 col-lg-2 col-form-label text-lg-end"> Modalidad </label>
+					<div class="col-sm-12 col-lg-4">
+						<select class="form-select" id="modalidad" th:field="*{modalidad}">
+							<option th:each="modalidad : ${modalidad}" th:value="${modalidad}" th:text="${modalidad.name()}"></option>
+						</select>
+					</div>
+				</div>
+
+
+
+				<p class="text-center"><input type="submit" class="btn btn-primary"
+						th:value="${edicion}?'Modificar':'Guardar'"></p>
+
+			</form>
+
+
+
+		</div>
+
+	</div>
+
+
+
+
+
+	<footer data-th-replace="~{/layouts/footer::footer}"></footer>
+
+</html>

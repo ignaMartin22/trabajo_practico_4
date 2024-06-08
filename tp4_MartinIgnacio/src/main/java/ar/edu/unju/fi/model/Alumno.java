@@ -2,19 +2,42 @@ package ar.edu.unju.fi.model;
 
 import java.time.LocalDate;
 
+
+import org.springframework.stereotype.Component;
+import java.lang.Long;
+@Component
 public class Alumno {
-int dni;
-String nombre;
-String apellido;
-String email;
-int telefono;
-LocalDate fechaDeNacimiento;
-String domicilio;
-String libretaUniversitaria;
-public int getDni() {
+private Long dni;
+private String nombre;
+private String apellido;
+private String email;
+private Long telefono;
+private LocalDate fechaDeNacimiento;
+private String domicilio;
+private String libretaUniversitaria;
+
+
+
+public Alumno() {
+	// TODO Auto-generated constructor stub
+}
+
+public Alumno(Long dni, String nombre, String apellido, String email, Long telefono, LocalDate fechaDeNacimiento,
+		String domicilio, String libretaUniversitaria) {
+	super();
+	this.dni = dni;
+	this.nombre = nombre;
+	this.apellido = apellido;
+	this.email = email;
+	this.telefono = telefono;
+	this.fechaDeNacimiento = fechaDeNacimiento;
+	this.domicilio = domicilio;
+	this.libretaUniversitaria = libretaUniversitaria;
+}
+public Long getDni() {
 	return dni;
 }
-public void setDni(int dni) {
+public void setDni(Long dni) {
 	this.dni = dni;
 }
 public String getNombre() {
@@ -35,10 +58,10 @@ public String getEmail() {
 public void setEmail(String email) {
 	this.email = email;
 }
-public int getTelefono() {
+public Long getTelefono() {
 	return telefono;
 }
-public void setTelefono(int telefono) {
+public void setTelefono(Long telefono) {
 	this.telefono = telefono;
 }
 public LocalDate getFechaDeNacimiento() {

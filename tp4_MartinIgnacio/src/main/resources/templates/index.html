@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1, user-scalable=no">
 
-	<title>FI-UNJU</title>
+	<title data-th-text="${titulo}"></title>
 
 	<link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -55,40 +55,11 @@
 	</style>
 
 
-	<nav class="navbar bg-custom navbar-expand-lg" data-bs-theme="dark">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#inicio">Inicio</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="#info">Acerca de</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#carreras">Carreras</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#noticias">Noticias</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#contacto">Contacto</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<header class="py-2 bg-custom" id="inicio">
-		<div class="container text-white text-center my-2">
-			<h1 class="display-4 fw-bold titulo-header mb-3">Facultad de Ingeniería</h1>
-			<p class="lead mb-2 subtitulo-header">"Forjando mentes, transformando el futuro"</p>
-			<div class=" d-flex align-items-center justify-content-center my-2 bg-white imagen">
-				<img src="/image/fi-logo.png" alt="Logo de la Facultad" class="img-fluid">
-			</div>
-		</div>
-	</header>
+
+	<nav data-th-replace="~{/layouts/header::nav}"></nav>
+	<header data-th-replace="~{/layouts/header::header}"></header>
+	
+
 	<div class="row">
 		<div class="col-10">
 
@@ -136,9 +107,10 @@
 		<div class=" col-12 col-md-2 px-2">
 			<aside class="mt-2 p-4 bg-custom text-white">
 				<ul class="nav flex-column">
-					<li class="nav-item"> <a class="nav-link text-white" href="#">Biblioteca</a> </li>
-					<li class="nav-item"> <a class="nav-link text-white" href="#">Calendario académico</a> </li>
-					<li class="nav-item"> <a class="nav-link text-white" href="#">Otra página</a> </li>
+					<li class="nav-item"> <a class="nav-link text-white" data-th-href="@{/alumnos/listadealumnos}">Alumnos</a> </li>
+					<li class="nav-item"> <a class="nav-link text-white" data-th-href="@{/docentes/listadocentes}">Docentes</a> </li>
+					<li class="nav-item"> <a class="nav-link text-white" data-th-href="@{/materias/listadomaterias}">Materias</a> </li>					
+					<li class="nav-item"> <a class="nav-link text-white" data-th-href="@{/carreras/listadocarreras}">Carreras</a> </li>
 				</ul>
 			</aside>
 		</div>
@@ -180,39 +152,9 @@
 
 		</div>
 	</section>
-
-	<footer class="footer bg-custom text-light py-4" id="contacto">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<h5>Información de contacto</h5>
-					<ul class="list-unstyled">
-						<li>Dirección: Av. Italo Palanca N°10, San Salvador de Jujuy</li>
-						<li>Teléfono: +54 (388) 433-4567</li>
-						<li>Correo electrónico: info@fi.unju.edu.ar</li>
-					</ul>
-				</div>
-				<div class="col-md-4 justify-content-center">
-					<h5>Redes sociales</h5>
-					<ul class="list-unstyled d-flex">
-						<li class="me-3"><a href="https://www.facebook.com/fiunju" class="text-light"><i
-									class="bi bi-facebook"></i></a></li>
-						<li class="me-3"><a href="https://www.instagram.com/fiunju/" class="text-light"><i
-									class="bi bi-twitter"></i></a></li>
-						<li class="me-3"><a href="https://twitter.com/manucho42" class="text-light"><i
-									class="bi bi-instagram"></i></a></li>
-						<li class="me-3"><a
-								href="https://www.linkedin.com/school/facultad-de-ingenieria-unju/posts/?feedView=all"
-								class="text-light"><i class="bi bi-linkedin"></i></a></li>
-					</ul>
-				</div>
-				<div class="col-md-4">
-					<h5>Derechos de autor</h5>
-					<p>&copy; 2024 Facultad de Ingeniería. Todos los derechos reservados.</p>
-				</div>
-			</div>
-		</div>
-	</footer>
+	
+<footer data-th-replace="~{/layouts/footer::footer}"></footer>
+	
 </body>
 
 </html>
