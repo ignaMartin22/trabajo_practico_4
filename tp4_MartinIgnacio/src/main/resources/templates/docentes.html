@@ -9,8 +9,14 @@
 	<nav data-th-replace="~{/layouts/header::nav}"></nav>
 	<header data-th-replace="~{/layouts/header::header}"></header>
 
-	<a class="m-3 btn btn-primary" data-th-href="@{/docentes/nuevo}" role="button">Nuevo Docente</a>
+	<h3 class="m-3 text-center">Lista de Docentes</h3>
 
+	<a class="m-3 btn btn-success" data-th-href="@{/index}" role="button">Volver al menú principal</a>
+
+	<a class="m-3 btn btn-primary" data-th-href="@{/docentes/nuevo}" role="button">Nuevo Docente</a>
+	<a class="m-3 btn btn-info" data-th-href="@{/alumnos/listadealumnos}" role="button">Ir a Alumnos</a>
+	<a class="m-3 btn btn-info" data-th-href="@{/materias/listadomaterias}" role="button">Ir a Materias</a>
+	<a class="m-3 btn btn-info" data-th-href="@{/carreras/listadocarreras}" role="button">Ir a Carreras</a>
 	<div class="d-flex justify-content-center">
 		<table class="table table-striped table-hover mx-auto">
 			<thead>

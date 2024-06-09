@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-	<head data-th-replace="~{/layouts/header::head}"></head>
-	<body>
-		<script	data-th-replace="~{/layouts/header::script}"></script>
-		<style 	data-th-replace="~{/layouts/header::style}"></style>
-		<nav data-th-replace="~{/layouts/header::nav}"></nav>
-		<header data-th-replace="~{/layouts/header::header}"></header>
-		
-		<a class="m-3 btn btn-primary" data-th-href="@{/carreras/nuevo}" role="button">Nueva Carrera</a>
-		
-		<div class="d-flex justify-content-center">	
-			<table class="table table-striped table-hover mx-auto">
-						  <thead>
-						    <tr>
-						      <th scope="col">Codigo</th>
-						      <th scope="col">Nombre</th>
-						      <th scope="col">Cantidad de años</th>
-						      <th scope="col">Estado</th>
-							  <th scope="col">Opciones</th>
-						    </tr>
-						  </thead>
-						  <tbody>
-						    <tr data-th-each="carrera: ${carreras}">
-						      <td data-th-text="${carrera.codigo}"></td>
-							  <td data-th-text="${carrera.nombre}"></td>
-							  <td data-th-text="${carrera.cantidadAnos}+ ' años'"></td>
-							  <td data-th-text="${carrera.estado}? 'Activa' : 'Inactiva'"></td>
-							  <td>
-								<a class="btn btn-warning" data-th-href="@{/carreras/modificar/}+${carrera.codigo}" role="button">Editar</a>
-								<a class="btn btn-danger" data-th-href="@{/carreras/eliminar/}+${carrera.codigo}" role="button">Eliminar</a>
-							  </td>
-						    </tr>
-				
-						    </tr>
-						  </tbody>
-						</table>
-		</div>
-			
-		
-		
-		
-		
-	</body>
-	<footer data-th-replace="~{/layouts/footer::footer}"></footer>
+
+<head data-th-replace="~{/layouts/header::head}"></head>
+
+<body>
+	<script data-th-replace="~{/layouts/header::script}"></script>
+	<style data-th-replace="~{/layouts/header::style}"></style>
+	<nav data-th-replace="~{/layouts/header::nav}"></nav>
+	<header data-th-replace="~{/layouts/header::header}"></header>
+
+	<h3 class="m-3 text-center">Lista de Carreras</h3>
+
+	<a class="m-3 btn btn-success" data-th-href="@{/index}" role="button">Volver al menú principal</a>
+	<a class="m-3 btn btn-primary" data-th-href="@{/carreras/nuevo}" role="button">Nueva Carrera</a>
+	<a class="m-3 btn btn-info" data-th-href="@{/alumnos/listadealumnos}" role="button">Ir a Alumnos</a>
+	<a class="m-3 btn btn-info" data-th-href="@{/docentes/listadocentes}" role="button">Ir a Docentes</a>
+	<a class="m-3 btn btn-info" data-th-href="@{/materias/listadomaterias}" role="button">Ir a Materias</a>
+
+	<div class="d-flex justify-content-center">
+		<table class="table table-striped table-hover mx-auto">
+			<thead>
+				<tr>
+					<th scope="col">Codigo</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Cantidad de años</th>
+					<th scope="col">Estado</th>
+					<th scope="col">Opciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-th-each="carrera: ${carreras}">
+					<td data-th-text="${carrera.codigo}"></td>
+					<td data-th-text="${carrera.nombre}"></td>
+					<td data-th-text="${carrera.cantidadAnos}+ ' años'"></td>
+					<td data-th-text="${carrera.estado}? 'Activa' : 'Inactiva'"></td>
+					<td>
+						<a class="btn btn-warning" data-th-href="@{/carreras/modificar/}+${carrera.codigo}"
+							role="button">Editar</a>
+						<a class="btn btn-danger" data-th-href="@{/carreras/eliminar/}+${carrera.codigo}"
+							role="button">Eliminar</a>
+					</td>
+				</tr>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+
+</body>
+<footer data-th-replace="~{/layouts/footer::footer}"></footer>
+
 </html>
